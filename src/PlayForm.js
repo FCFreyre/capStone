@@ -1,11 +1,14 @@
 import React from 'react';
 import classnames from 'classnames';
+import { connect } from 'react-redux';
+import { savePlay } from './actions';
 
 class PlayForm extends React.Component {
   state = {
     title: '',
     cover: '',
-    errors: {}
+    errors: {},
+    loading: false
   }
 
   handleChange = (e) => {
@@ -29,12 +32,24 @@ class PlayForm extends React.Component {
     if(this.state.title === '') errors.title = "Can't be empty";
     if(this.state.cover === '') errors.cover = "Can't be empty";
     this.setState({ errors });
+    const isValid = Object.keys(errors).length === 0
+
+    if(isValid) {
+      const { title, cover } =  this.state;
+      this.setState({ loading: true })
+      this.props.savePlay({ title, cover }).then(
+        () => {},
+        (err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false }))
+      );
+    }
   }
 
   render() {
     return (
-      <form className="ui form" onSubmit={this.handleSubmit}>
+      <form className={classnames('ui', 'form', { loading: this.state.loading })} onSubmit={this.handleSubmit}>
         <h1>Add new play</h1>
+
+        {!!this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div>}
 
         <div className={classnames('field', { error: !!this.state.errors.title})}>
           <label htmlFor="title">Title</label>
@@ -71,4 +86,4 @@ class PlayForm extends React.Component {
   }
 }
 
-export default PlayForm;
+export default connect(null, { savePlay })(PlayForm);
