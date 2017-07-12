@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { savePlay } from './actions';
 
 class PlayForm extends React.Component {
@@ -8,7 +9,8 @@ class PlayForm extends React.Component {
     title: '',
     cover: '',
     errors: {},
-    loading: false
+    loading: false,
+    done: false
   }
 
   handleChange = (e) => {
@@ -38,50 +40,55 @@ class PlayForm extends React.Component {
       const { title, cover } =  this.state;
       this.setState({ loading: true })
       this.props.savePlay({ title, cover }).then(
-        () => {},
+        () => { this.setState({ done: true })},
         (err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false }))
       );
     }
   }
 
   render() {
-    return (
+    const form = (
       <form className={classnames('ui', 'form', { loading: this.state.loading })} onSubmit={this.handleSubmit}>
-        <h1>Add new play</h1>
+      <h1>Add new play</h1>
 
-        {!!this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div>}
+      {!!this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div>}
 
-        <div className={classnames('field', { error: !!this.state.errors.title})}>
-          <label htmlFor="title">Title</label>
-          <input
-            name="title"
-            value={this.state.title}
-            onChange={this.handleChange}
-            id="title"
-          />
-          <span>{this.state.errors.title}</span>
-
-        </div>
-
-        <div className={classnames('field', { error: !!this.state.errors.cover})}>
-          <label htmlFor="cover">Cover URL</label>
-          <input
-          name="cover"
-          value={this.state.cover}
+      <div className={classnames('field', { error: !!this.state.errors.title})}>
+        <label htmlFor="title">Title</label>
+        <input
+          name="title"
+          value={this.state.title}
           onChange={this.handleChange}
-            id="cover"
-          />
-          <span>{this.state.errors.cover}</span>
-        </div>
+          id="title"
+        />
+        <span>{this.state.errors.title}</span>
 
-        <div className="field">
-          {this.state.cover !== '' &&<img src={this.state.cover} alt="cover" className="ui small bordered image"/>}
-        </div>
+      </div>
 
-        <div className="field">
-          <button className="ui primary button">Save</button>
-        </div>
+      <div className={classnames('field', { error: !!this.state.errors.cover})}>
+        <label htmlFor="cover">Cover URL</label>
+        <input
+        name="cover"
+        value={this.state.cover}
+        onChange={this.handleChange}
+          id="cover"
+        />
+        <span>{this.state.errors.cover}</span>
+      </div>
+
+      <div className="field">
+        {this.state.cover !== '' &&<img src={this.state.cover} alt="cover" className="ui small bordered image"/>}
+      </div>
+
+      <div className="field">
+        <button className="ui primary button">Save</button>
+      </div>
       </form>
+    )
+    return (
+      <div>
+        { this.state.done ? <Redirect to="/plays" /> : form }
+      </div>
     );
   }
 }
