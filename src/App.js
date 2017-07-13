@@ -10,7 +10,7 @@ import PlaysPage from './PlaysPage';
 import PlayForm from './PlayForm';
 
 
-class App extends Component {
+class App extends Component { 
   render() {
     return (
       <div className="ui container">
