@@ -6,22 +6,22 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import PlaysPage from './PlaysPage'
+import PlaysPage from './PlaysPage';
+import PlayForm from './PlayForm';
 
 
-class App extends Component {
+class App extends Component { 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div className="ui container">
+        <div className="ui three item menu">
+          <Link className="item" activeClassName="active" activeOnlyWhenExact to="/">Home</Link>
+          <Link className="item" activeClassName="active" activeOnlyWhenExact to="/plays">Plays</Link>
+          <Link className="item" activeClassName="active" activeOnlyWhenExact to="/plays/new">Add New Play</Link>
         </div>
-        <p className="App-intro">
-          <Link to="plays">Plays</Link>
-        </p>
 
-        <Route path="/plays" component={PlaysPage}/>
+        <Route exact path="/plays" component={PlaysPage} />
+        <Route path="/plays/new" component={PlayForm} />
       </div>
     );
   }

@@ -71,7 +71,7 @@ class PlayForm extends React.Component {
         name="cover"
         value={this.state.cover}
         onChange={this.handleChange}
-          id="cover" 
+          id="cover"
         />
         <span>{this.state.errors.cover}</span>
       </div>
