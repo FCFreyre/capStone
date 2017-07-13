@@ -1,6 +1,7 @@
 export const SET_PLAYS = 'SET_PLAYS';
 export const ADD_PLAY = 'ADD_PLAY';
 export const PLAY_FETCHED = 'PLAY_FETCHED';
+export const PLAY_UPDATED = 'PLAY_UPDATED';
 
 function handleResponse(response) {
   if (response.ok) {
@@ -33,6 +34,13 @@ export function playFetched(play) {
   }
 }
 
+export function playUpdated(play) {
+  return {
+    type: PLAY_UPDATED,
+    play
+  }
+}
+
 export function savePlay(data) {
   return dispatch => {
     return fetch('/api/plays', {
@@ -44,6 +52,21 @@ export function savePlay(data) {
     }).then(handleResponse)
     .then(data => {
       dispatch(addPlay(data.plays))
+    });
+  }
+}
+
+export function updatePlay(data) {
+  return dispatch => {
+    return fetch(`/api/plays/${data._id}`, {
+      method: 'put',
+      body: JSON.stringify(data),
+      headers:{
+        "Content-Type": "application/json"
+      }
+    }).then(handleResponse)
+    .then(data => {
+      dispatch(playUpdated(data.plays))
     });
   }
 }

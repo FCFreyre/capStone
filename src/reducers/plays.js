@@ -1,4 +1,4 @@
-import { SET_PLAYS, ADD_PLAY, PLAY_FETCHED } from '../actions';
+import { SET_PLAYS, ADD_PLAY, PLAY_FETCHED, PLAY_UPDATED } from '../actions';
 
 export default function plays(state = [], action = {}) {
   switch (action.type) {
@@ -6,7 +6,13 @@ export default function plays(state = [], action = {}) {
       return [
         ...state,
         action.play
-      ];
+      ]
+
+    case PLAY_UPDATED:
+      return state.map(item => {
+        if (item._id === action.play._id) return action.play
+        return item
+      })
 
     case PLAY_FETCHED:
       const index = state.findIndex(item => item._id === action.play._id);

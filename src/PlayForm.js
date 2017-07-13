@@ -1,8 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { savePlay, fetchPlay } from './actions';
+
 
 class PlayForm extends React.Component {
   state = {
@@ -10,8 +8,7 @@ class PlayForm extends React.Component {
     title: this.props.play ? this.props.play.title : '',
     cover: this.props.play ? this.props.play.cover : '',
     errors: {},
-    loading: false,
-    done: false
+    loading: false
   }
 
   componentWillRecieveProps = (nextProps) => {
@@ -22,12 +19,7 @@ class PlayForm extends React.Component {
     })
   }
 
-  componentDidMount = () => {
-    const { match } = this.props
-    if(match.params._id) {
-      this.props.fetchPlay(match.params._id)
-    }
-  }
+
 
   handleChange = (e) => {
     if(this.state.errors[e.target.name]) {
@@ -53,12 +45,10 @@ class PlayForm extends React.Component {
     const isValid = Object.keys(errors).length === 0
 
     if(isValid) {
-      const { title, cover } =  this.state;
+      const { _id, title, cover } =  this.state;
       this.setState({ loading: true })
-      this.props.savePlay({ title, cover }).then(
-        () => { this.setState({ done: true })},
-        (err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false }))
-      );
+      this.props.savePlay({ _id, title, cover})
+        .catch((err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false })))
     }
   }
 
@@ -103,21 +93,10 @@ class PlayForm extends React.Component {
     )
     return (
       <div>
-        { this.state.done ? <Redirect to="/plays" /> : form }
+        { form }
       </div>
     );
   }
 }
 
-function mapStateToProps(state, props) {
-  const { match } = props;
-  if(match.params._id) {
-    return {
-      play: state.plays.find(item => item._id === match.params._id)
-    }
-
-    return { play: null }
-  }
-}
-
-export default connect(mapStateToProps, { savePlay, fetchPlay })(PlayForm);
+export default PlayForm;
