@@ -2,15 +2,31 @@ import React from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { savePlay } from './actions';
+import { savePlay, fetchPlay } from './actions';
 
 class PlayForm extends React.Component {
   state = {
-    title: '',
-    cover: '',
+    _id: this.props.play ? this.props.play._id : null,
+    title: this.props.play ? this.props.play.title : '',
+    cover: this.props.play ? this.props.play.cover : '',
     errors: {},
     loading: false,
     done: false
+  }
+
+  componentWillRecieveProps = (nextProps) => {
+    this.setState({
+      _id: nextProps.play._id,
+      title: nextProps.play.title,
+      cover: nextProps.play.cover
+    })
+  }
+
+  componentDidMount = () => {
+    const { match } = this.props
+    if(match.params._id) {
+      this.props.fetchPlay(match.params._id)
+    }
   }
 
   handleChange = (e) => {
@@ -93,4 +109,15 @@ class PlayForm extends React.Component {
   }
 }
 
-export default connect(null, { savePlay })(PlayForm);
+function mapStateToProps(state, props) {
+  const { match } = props;
+  if(match.params._id) {
+    return {
+      play: state.plays.find(item => item._id === match.params._id)
+    }
+
+    return { play: null }
+  }
+}
+
+export default connect(mapStateToProps, { savePlay, fetchPlay })(PlayForm);

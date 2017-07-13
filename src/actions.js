@@ -1,4 +1,6 @@
 export const SET_PLAYS = 'SET_PLAYS';
+export const ADD_PLAY = 'ADD_PLAY';
+export const PLAY_FETCHED = 'PLAY_FETCHED';
 
 function handleResponse(response) {
   if (response.ok) {
@@ -10,10 +12,24 @@ function handleResponse(response) {
   }
 }
 
+export function addPlay(play) {
+  return {
+    type: ADD_PLAY,
+    play
+  }
+}
+
 export function setPlays(plays) {
   return {
     type: SET_PLAYS,
     plays
+  }
+}
+
+export function playFetched(play) {
+  return {
+    type: PLAY_FETCHED,
+    play
   }
 }
 
@@ -25,7 +41,10 @@ export function savePlay(data) {
       headers:{
         "Content-Type": "application/json"
       }
-    }).then(handleResponse);
+    }).then(handleResponse)
+    .then(data => {
+      dispatch(addPlay(data.plays))
+    });
   }
 }
 
@@ -34,5 +53,13 @@ export function fetchPlays() {
     fetch('/api/plays')
     .then(res => res.json())
     .then(data => dispatch(setPlays(data.plays)));
+  }
+}
+
+export function fetchPlay(id) {
+  return dispatch => {
+    fetch(`/api/plays/${id}`)
+    .then(res => res.json())
+    .then(data => dispatch(playFetched(data.play)));
   }
 }

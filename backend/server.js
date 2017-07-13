@@ -33,12 +33,18 @@ mongodb.MongoClient.connect(dbUrl, function(err, db) {
         if (err) {
           res.status(500).json({ errors: { global: "Something went wrong"}})
         } else {
-          res.json({ game: result.ops[0] })
+          res.json({ plays: result.ops[0] })
         }
       })
     } else {
       res.status(400).json({ errors });
     }
+  })
+
+  app.get('/api/plays/:_id', (req, res) => {
+    db.collection('plays').findOne({ _id: new mongodb.ObjectId(req.params._id) }, (err, play) => {
+      res.json({ play });
+    })
   })
 
 
