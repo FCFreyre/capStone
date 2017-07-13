@@ -7,10 +7,10 @@ import {
   Link
 } from 'react-router-dom';
 import PlaysPage from './PlaysPage';
-import PlayForm from './PlayForm';
+import PlayFormPage from './PlayFormPage';
 
 
-class App extends Component { 
+class App extends Component {
   render() {
     return (
       <div className="ui container">
@@ -21,7 +21,8 @@ class App extends Component {
         </div>
 
         <Route exact path="/plays" component={PlaysPage} />
-        <Route path="/plays/new" component={PlayForm} />
+        <Route path="/plays/new" component={PlayFormPage} />
+        <Route path="/play/:_id" component={PlayFormPage} />
       </div>
     );
   }

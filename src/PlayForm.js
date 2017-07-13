@@ -1,17 +1,25 @@
 import React from 'react';
 import classnames from 'classnames';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { savePlay } from './actions';
+
 
 class PlayForm extends React.Component {
   state = {
-    title: '',
-    cover: '',
+    _id: this.props.play ? this.props.play._id : null,
+    title: this.props.play ? this.props.play.title : '',
+    cover: this.props.play ? this.props.play.cover : '',
     errors: {},
-    loading: false,
-    done: false
+    loading: false
   }
+
+  componentWillRecieveProps = (nextProps) => {
+    this.setState({
+      _id: nextProps.play._id,
+      title: nextProps.play.title,
+      cover: nextProps.play.cover
+    })
+  }
+
+
 
   handleChange = (e) => {
     if(this.state.errors[e.target.name]) {
@@ -37,12 +45,10 @@ class PlayForm extends React.Component {
     const isValid = Object.keys(errors).length === 0
 
     if(isValid) {
-      const { title, cover } =  this.state;
+      const { _id, title, cover } =  this.state;
       this.setState({ loading: true })
-      this.props.savePlay({ title, cover }).then(
-        () => { this.setState({ done: true })},
-        (err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false }))
-      );
+      this.props.savePlay({ _id, title, cover})
+        .catch((err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false })))
     }
   }
 
@@ -87,10 +93,10 @@ class PlayForm extends React.Component {
     )
     return (
       <div>
-        { this.state.done ? <Redirect to="/plays" /> : form }
+        { form }
       </div>
     );
   }
 }
 
-export default connect(null, { savePlay })(PlayForm);
+export default PlayForm;

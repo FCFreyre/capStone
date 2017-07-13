@@ -8,7 +8,9 @@ export default function PlaysList({ plays }) {
 
   const playsList = (
     <div className='ui four cards'>
-      { plays.map(play => <PlayCard play={play} key={play._id} />) }
+      {
+
+        plays.map(play => <PlayCard play={play} key={play._id} />) }
     </div>
   );
   return (
