@@ -12,7 +12,7 @@ export default function PlayCard({ play }) {
       </div>
       <div className="extra content">
         <div className="ui two buttons">
-          <Link to={`/play/${play._id}`} className="ui basic button green">Edit</Link>
+          <Link to={`/plays/${play._id}`} className="ui basic button green">Edit</Link>
           <div className="ui basic button red">Delete</div>
         </div>
       </div>
