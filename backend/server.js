@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 const app = express();
 app.use(bodyParser.json())
 app.use(cors())
-const dbUrl = 'mongodb://localhost/capstone';
+const dbUrl = process.env.MONGODB_URI ||'mongodb://localhost/capstone';
 
 function validate(data) {
   let errors = {};
