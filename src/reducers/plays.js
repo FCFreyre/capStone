@@ -1,4 +1,4 @@
-import { SET_PLAYS, ADD_PLAY, PLAY_FETCHED, PLAY_UPDATED } from '../actions';
+import { SET_PLAYS, ADD_PLAY, PLAY_FETCHED, PLAY_UPDATED, PLAY_DELETED } from '../actions';
 
 export default function plays(state = [], action = {}) {
   switch (action.type) {
@@ -7,6 +7,9 @@ export default function plays(state = [], action = {}) {
         ...state,
         action.play
       ]
+
+    case PLAY_DELETED:
+      return state.filter(item => item._id !== action.playId);
 
     case PLAY_UPDATED:
       return state.map(item => {

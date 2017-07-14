@@ -2,6 +2,7 @@ export const SET_PLAYS = 'SET_PLAYS';
 export const ADD_PLAY = 'ADD_PLAY';
 export const PLAY_FETCHED = 'PLAY_FETCHED';
 export const PLAY_UPDATED = 'PLAY_UPDATED';
+export const PLAY_DELETED = 'PLAY_DELETED';
 
 function handleResponse(response) {
   if (response.ok) {
@@ -41,6 +42,13 @@ export function playUpdated(play) {
   }
 }
 
+export function playDeleted(playId) {
+  return {
+    type: PLAY_DELETED,
+    playId
+  }
+}
+
 export function savePlay(data) {
   return dispatch => {
     return fetch('/api/plays', {
@@ -51,7 +59,7 @@ export function savePlay(data) {
       }
     }).then(handleResponse)
     .then(data => {
-      dispatch(addPlay(data.plays))
+      dispatch(addPlay(data.play))
     });
   }
 }
@@ -67,7 +75,21 @@ export function updatePlay(data) {
       }
     }).then(handleResponse)
     .then(data => {
-      dispatch(playUpdated(data.plays))
+      dispatch(playUpdated(data.play))
+    });
+  }
+}
+
+export function deletePlay(id) {
+  return dispatch => {
+    return fetch(`/api/plays/${id}`, {
+      method: 'delete',
+      headers:{
+        "Content-Type": "application/json"
+      }
+    }).then(handleResponse)
+    .then(data => {
+      dispatch(playDeleted(id))
     });
   }
 }

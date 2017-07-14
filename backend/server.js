@@ -67,14 +67,22 @@ mongodb.MongoClient.connect(dbUrl, function(err, db) {
     })
   })
 
+  app.delete('/api/plays/:_id', (req, res) => {
+    db.collection('plays').deleteOne({ _id: new mongodb.ObjectId(req.params._id) }, (err, r) => {
+      if (err) { res.status(500).json({ errors: { global: err}}); return; }
 
-app.use((req, res) => {
-  res.status(404).json({
-    errors: {
-      global: "Still working on it. Please try again later when we implement it."
-    }
+      res.json({})
+    })
   })
-})
+
+
+  app.use((req, res) => {
+    res.status(404).json({
+      errors: {
+        global: "Still working on it. Please try again later when we implement it."
+      }
+    })
+  })
 
 
   app.listen(8080, () => console.log('Server is running on localhost:8080'));

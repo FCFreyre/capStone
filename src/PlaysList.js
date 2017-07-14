@@ -1,7 +1,7 @@
 import React from 'react';
 import PlayCard from './PlayCard'
 
-export default function PlaysList({ plays }) {
+export default function PlaysList({ plays, deletePlay }) {
   const emptyMessage = (
     <p>There are no plays in your playbook yet.</p>
   );
@@ -10,7 +10,7 @@ export default function PlaysList({ plays }) {
     <div className='ui four cards'>
       {
 
-        plays.map(play => <PlayCard play={play} key={play._id} />) }
+        plays.map(play => <PlayCard play={play} key={play._id} deletePlay={deletePlay} />) }
     </div>
   );
   return (
@@ -21,5 +21,6 @@ export default function PlaysList({ plays }) {
 }
 
 PlaysList.propTypes = {
-  plays: React.PropTypes.array.isRequired
+  plays: React.PropTypes.array.isRequired,
+  deletePlay: React.PropTypes.func.isRequired
 }
