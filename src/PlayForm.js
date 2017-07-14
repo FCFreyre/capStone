@@ -11,7 +11,7 @@ class PlayForm extends React.Component {
     loading: false
   }
 
-  componentWillRecieveProps = (nextProps) => {
+  componentWillReceiveProps = (nextProps) => {
     this.setState({
       _id: nextProps.play._id,
       title: nextProps.play.title,

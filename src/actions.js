@@ -58,6 +58,7 @@ export function savePlay(data) {
 
 export function updatePlay(data) {
   return dispatch => {
+    console.log(data);
     return fetch(`/api/plays/${data._id}`, {
       method: 'put',
       body: JSON.stringify(data),
