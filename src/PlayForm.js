@@ -48,7 +48,7 @@ class PlayForm extends React.Component {
       const { _id, title, cover } =  this.state;
       this.setState({ loading: true })
       this.props.savePlay({ _id, title, cover})
-        .catch((err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false })))
+        // .catch((err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false })))
     }
   }
 
