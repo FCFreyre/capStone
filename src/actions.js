@@ -15,17 +15,19 @@ function handleResponse(response) {
   }
 }
 
-export function addPlay(play) {
-  return {
-    type: ADD_PLAY,
-    play
-  }
-}
 
 export function setPlays(plays) {
   return {
     type: SET_PLAYS,
     plays
+  }
+}
+
+export function addPlay(play) {
+  console.log(play);
+  return {
+    type: ADD_PLAY,
+    play
   }
 }
 
@@ -60,8 +62,8 @@ export function savePlay(data) {
       }
     }).then(handleResponse)
     .then(data => {
-      dispatch(addPlay(data.play))
-    });
+      console.log(data);
+      dispatch(addPlay(data.plays))});
   }
 }
 
@@ -75,9 +77,7 @@ export function updatePlay(data) {
         "Content-Type": "application/json"
       }
     }).then(handleResponse)
-    .then(data => {
-      dispatch(playUpdated(data.play))
-    });
+    .then(data => dispatch(playUpdated(data.play)));
   }
 }
 
@@ -97,15 +97,16 @@ export function deletePlay(id) {
 
 export function fetchPlays() {
   return dispatch => {
-    fetch('/api/plays')
+    fetch('http://localhost:8080/api/plays')
     .then(res => res.json())
-    .then(data => dispatch(setPlays(data.plays)));
+    .then(data =>
+      dispatch(setPlays(data.plays)));
   }
 }
 
 export function fetchPlay(id) {
   return dispatch => {
-    fetch(`/api/plays/${id}`)
+    fetch(`http://localhost:8080/api/plays/${id}`)
     .then(res => res.json())
     .then(data => dispatch(playFetched(data.play)));
   }

@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import {
-  BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
 import PlaysPage from './PlaysPage';
 import PlayFormPage from './PlayFormPage';
+
+const ActiveLink = ({ label, to, activeOnlyWhenExact }) => (
+  <Route path={to} exact={activeOnlyWhenExact} children={({ match }) => (
+    <Link className={match ? 'active item' : 'item'} to={to}>{label}</Link>
+  )} />
+)
 
 
 class App extends Component {
@@ -15,9 +20,9 @@ class App extends Component {
     return (
       <div className="ui container">
         <div className="ui three item menu">
-          <Link className="item" activeClassName="active" activeOnlyWhenExact to="/">Home</Link>
-          <Link className="item" activeClassName="active" activeOnlyWhenExact to="/plays">Plays</Link>
-          <Link className="item" activeClassName="active" activeOnlyWhenExact to="/plays/new">Add New Play</Link>
+          <ActiveLink activeOnlyWhenExact to="/" label="Home" />
+          <ActiveLink activeOnlyWhenExact to="/plays" label="Plays" />
+          <ActiveLink activeOnlyWhenExact to="/plays/new" label="Add New Play" />
         </div>
 
         <Route exact path="/plays" component={PlaysPage} />

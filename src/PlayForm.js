@@ -22,7 +22,7 @@ class PlayForm extends React.Component {
 
 
   handleChange = (e) => {
-    if(this.state.errors[e.target.name]) {
+    if(!!this.state.errors[e.target.name]) {
       let errors = Object.assign({}, this.state.errors);
       delete errors[e.target.name];
       this.setState({
@@ -55,7 +55,7 @@ class PlayForm extends React.Component {
   render() {
     const form = (
       <form className={classnames('ui', 'form', { loading: this.state.loading })} onSubmit={this.handleSubmit}>
-      <h1>Add new play</h1>
+      <h1>Add new </h1>
 
       {!!this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div>}
 
@@ -83,7 +83,7 @@ class PlayForm extends React.Component {
       </div>
 
       <div className="field">
-        {this.state.cover !== '' &&<img src={this.state.cover} alt="cover" className="ui small bordered image"/>}
+        {this.state.cover !== '' && <img src={this.state.cover} alt="cover" className="ui small bordered image"/>}
       </div>
 
       <div className="field">

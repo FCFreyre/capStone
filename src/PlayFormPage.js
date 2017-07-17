@@ -17,7 +17,7 @@ class PlayFormPage extends React.Component {
     }
   }
 
-  savePlay = ({ _id, title, cover}) => {
+  savePlay = ({_id, title, cover}) => {
     if(_id) {
       return this.props.updatePlay({ _id, title, cover }).then(
         () => { this.setState({ redirect: true })}
@@ -51,9 +51,10 @@ function mapStateToProps(state, props) {
     return {
       play: state.plays.find(item => item._id === match.params._id)
     }
-
-    return { play: null }
   }
+
+  return { play: null }
 }
+
 
 export default connect(mapStateToProps, { savePlay, fetchPlay, updatePlay })(PlayFormPage);

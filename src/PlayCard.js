@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 
 export default function PlayCard({ play, deletePlay }) {
   return (
     <div className="ui card">
       <div className="image">
-        <img src={play.cover} alt="Play Picture" />
+        <img src={play.cover} alt="Play" />
       </div>
       <div className="content">
         <div className="header">{play.title}</div>
@@ -24,6 +25,6 @@ export default function PlayCard({ play, deletePlay }) {
 
 
 PlayCard.propTypes = {
-  play: React.PropTypes.object.isRequired,
-  deletePlay: React.PropTypes.func.isRequired
+  play: PropTypes.object.isRequired,
+  deletePlay: PropTypes.func.isRequired
 }
