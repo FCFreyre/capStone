@@ -97,7 +97,7 @@ export function deletePlay(id) {
 
 export function fetchPlays() {
   return dispatch => {
-    fetch('http://localhost:8080/api/plays')
+    fetch(API_BASE_URL + '/api/plays')
     .then(res => res.json())
     .then(data =>
       dispatch(setPlays(data.plays)));
