@@ -70,7 +70,7 @@ export function savePlay(data) {
 export function updatePlay(data) {
   return dispatch => {
     console.log(data);
-    return fetch(`/api/plays/${data._id}`, {
+    return fetch(API_BASE_URL + `/api/plays/${data._id}`, {
       method: 'put',
       body: JSON.stringify(data),
       headers:{
@@ -83,7 +83,7 @@ export function updatePlay(data) {
 
 export function deletePlay(id) {
   return dispatch => {
-    return fetch(`/api/plays/${id}`, {
+    return fetch(API_BASE_URL + `/api/plays/${id}`, {
       method: 'delete',
       headers:{
         "Content-Type": "application/json"
@@ -106,7 +106,7 @@ export function fetchPlays() {
 
 export function fetchPlay(id) {
   return dispatch => {
-    fetch(`http://localhost:8080/api/plays/${id}`)
+    fetch(API_BASE_URL + `/api/plays/${id}`)
     .then(res => res.json())
     .then(data => dispatch(playFetched(data.play)));
   }
