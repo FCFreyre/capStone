@@ -21,14 +21,12 @@ class Landing extends React.Component {
   render() {
     return (
       <div className="ui container">
-        <h1>Welcome to Huddle!</h1>
-        <div className="ui card">
+        <img className='logo' src='images/huddle_logo.jpg' alt="logo"/>
+        <div className="ui card centered">
           <ActiveLink activeOnlyWhenExact to="/Player" label="Log in as Player" />
           <ActiveLink activeOnlyWhenExact to="/Coach" label="Log in as Coach" />
           <ActiveLink activeOnlyWhenExact to="#" label="Sign up" />
         </div>
-
-        <img src={'public/test.png'} alt="logo"/>
 
 
         <Route path="/Player" component={Player} />

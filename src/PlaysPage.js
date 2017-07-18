@@ -22,7 +22,7 @@ class PlaysPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Plays List</h1>
+        <h1 className="plays-list-label">Plays List</h1>
 
         {!this.state.isLoading ? <PlaysList plays={this.props.plays} deletePlay={this.props.deletePlay} />: null}
       </div>

@@ -19,8 +19,7 @@ class Player extends React.Component {
 
       <div>
         <div className="ui card">
-          <h3>Welcome to</h3>
-          <img src={'./images/huddle_logo.jpg'} alt="logo" width="100" />
+          <h3>Welcome</h3>
           <h2>Player123</h2>
         </div>
         <div>

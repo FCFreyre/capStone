@@ -60,7 +60,7 @@ class PlayForm extends React.Component {
       {!!this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div>}
 
       <div className={classnames('field', { error: !!this.state.errors.title})}>
-        <label htmlFor="title">Title</label>
+        <h3 className="plays-list-label" htmlFor="title">Title</h3>
         <input
           name="title"
           value={this.state.title}
@@ -72,7 +72,7 @@ class PlayForm extends React.Component {
       </div>
 
       <div className={classnames('field', { error: !!this.state.errors.cover})}>
-        <label htmlFor="cover">Cover URL</label>
+        <h3 className="plays-list-label" htmlFor="cover">Image URL</h3>
         <input
         name="cover"
         value={this.state.cover}

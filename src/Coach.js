@@ -18,11 +18,10 @@ class Coach extends React.Component {
       <div className="ui">
 
         <div className="ui card">
-          <h3>Welcome to</h3>
-          <img src="images/huddle_logo.jpg" alt="logo" width="100" />
+          <h3>Welcome</h3>
           <h2>Coach123</h2>
         </div>
-        
+
         <div className="ui three item menu">
           <ActiveLink activeOnlyWhenExact to="/Coach" label="Home" />
           <ActiveLink activeOnlyWhenExact to="/Coach/plays" label="Plays" />
