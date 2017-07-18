@@ -3,7 +3,6 @@ import PlayCard from './PlayCard'
 import PropTypes from 'prop-types';
 
 export default function PlaysList({ plays, deletePlay }) {
-  {console.log({plays});}
   const emptyMessage = (
     <p>There are no plays in your playbook yet.</p>
   );
