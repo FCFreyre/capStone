@@ -28,7 +28,7 @@ class Landing extends React.Component {
           <ActiveLink activeOnlyWhenExact to="#" label="Sign up" />
         </div>
 
-        <img src={'images/huddle_logo.png'} alt="logo"/>
+        <img src={'public/test.png'} alt="logo"/>
 
 
         <Route path="/Player" component={Player} />
