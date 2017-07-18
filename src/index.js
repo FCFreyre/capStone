@@ -17,6 +17,7 @@ import Player from './Player';
 import Coach from './Coach';
 import PlaysPage from './PlaysPage';
 import PlayFormPage from './PlayFormPage';
+import FlashCardPage from './FlashCardPage';
 // import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(
@@ -43,9 +44,11 @@ ReactDOM.render(
         <Route path="/Player" component={Player} />
         <Route path="/Coach" component={Coach} />
         <Route exact path="/Coach/plays" component={PlaysPage} />
-        <Route exact path="/Player/plays" component={PlaysPage} />
+
         <Route path="/Coach/plays/new" component={PlayFormPage} />
-        <Route path="/play/:_id" component={PlayFormPage} />
+        <Route path="/Coach/play/:_id" component={PlayFormPage} />
+        <Route exact path="/Player/plays" component={FlashCardPage} />
+        <Route exact path="/Player/plays/FlashCardPage" component={FlashCardPage} />
       </div>
     </Provider>
   </BrowserRouter>,

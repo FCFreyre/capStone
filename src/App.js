@@ -7,8 +7,6 @@ import {
 } from 'react-router-dom';
 
 
-console.log('it got this far')
-
 
 class App extends Component {
 

@@ -48,14 +48,14 @@ class PlayForm extends React.Component {
       const { _id, title, cover } =  this.state;
       this.setState({ loading: true })
       this.props.savePlay({ _id, title, cover})
-        // .catch((err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false })))
+        .catch((err) => err.response.json().then(({errors}) => this.setState({ errors, loading: false })))
     }
   }
 
   render() {
     const form = (
       <form className={classnames('ui', 'form', { loading: this.state.loading })} onSubmit={this.handleSubmit}>
-      <h1>Add new </h1>
+      <h1>Play Editor</h1>
 
       {!!this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div>}
 

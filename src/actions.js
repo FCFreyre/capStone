@@ -24,7 +24,6 @@ export function setPlays(plays) {
 }
 
 export function addPlay(play) {
-  console.log(play);
   return {
     type: ADD_PLAY,
     play
@@ -62,14 +61,12 @@ export function savePlay(data) {
       }
     }).then(handleResponse)
     .then(data => {
-      console.log(data);
       dispatch(addPlay(data.plays))});
   }
 }
 
 export function updatePlay(data) {
   return dispatch => {
-    console.log(data);
     return fetch(API_BASE_URL + `/api/plays/${data._id}`, {
       method: 'put',
       body: JSON.stringify(data),

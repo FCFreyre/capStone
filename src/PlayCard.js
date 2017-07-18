@@ -14,7 +14,7 @@ export default function PlayCard({ play, deletePlay }) {
       <div className="extra content">
         <div className="ui two buttons">
 
-          <Link to={`/play/${play._id}`} className="ui basic button green">Edit</Link>
+          <Link to={`/Coach/play/${play._id}`} className="ui basic button green">Edit</Link>
 
         <div className="ui basic button red" onClick={() => deletePlay(play._id)}>Delete</div>
         </div>

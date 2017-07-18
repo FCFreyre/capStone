@@ -34,7 +34,7 @@ class PlayFormPage extends React.Component {
       <div>
         {
           this.state.redirect ?
-          <Redirect to="/plays" /> :
+          <Redirect to="/Coach/plays" /> :
           <PlayForm
             play={this.props.play}
             savePlay={this.savePlay}
