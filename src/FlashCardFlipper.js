@@ -1,23 +1,55 @@
 import React from 'react';
-import FlashCard from './FlashCard'
+import FlashCardList from './FlashCardList';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { fetchPlays } from './actions';
+import FlashCard from './FlashCard';
 
-export default function FlashCardFlipper({ plays }) {
-  const emptyMessage = (
-    <p>There are no plays in your playbook yet.</p>
-  );
-  const randomPlay = (
-    <div className='ui card'>
-      {plays.map((play, i) => <FlashCard play={play} key={i} />) }
-    </div>
-  );
-  return (
-    <div>
-      {plays.length === 0 ? emptyMessage : playsList}
-    </div>
-  );
+
+
+class FlashCardFlipper extends React.Component {
+
+  state={
+    isLoading: "pending"
+  }
+
+   componentWillMount() {
+      this.props.fetchPlays()
+ }
+
+  handleClick = () => {
+    const i = Math.floor(Math.random() * this.props.plays.length)
+    this.setState({play: this.props.plays[i]})
+  }
+
+  render() {
+    console.log(this.props.plays);
+    if(this.props.plays === true || this.props.plays ==="pending" || this.props.plays.length === 0){
+      return(<div className="ui container header center">This is a loading screen</div>)
+    }else {
+      console.log(this.props.plays);
+    return (
+      <div>
+        <h1>Flash Cards</h1>
+          <div>
+            <img src={this.props.plays[0].cover} alt="play-cover"/>
+          </div>
+      </div>
+    );
+  }
+
+}
 }
 
 FlashCardFlipper.propTypes = {
-  plays: PropTypes.array.isRequired
+  plays: PropTypes.array.isRequired,
+  fetchPlays: PropTypes.func.isRequired
 }
+
+function mapStateToProps(state) {
+  return {
+    plays: state.plays
+  }
+}
+
+export default connect(mapStateToProps, { fetchPlays })(FlashCardFlipper);
