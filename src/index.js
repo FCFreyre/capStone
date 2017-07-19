@@ -12,6 +12,7 @@ import {
 } from 'react-router-dom';
 
 import App from './App';
+import Nav from './Nav';
 import Landing from './Landing';
 import Player from './Player';
 import Coach from './Coach';
@@ -40,6 +41,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
       <div className="ui container">
+        <Nav />
         <Route path="/" component={App} />
         <Route path="/Landing" component={Landing} />
         <Route path="/Player" component={Player} />

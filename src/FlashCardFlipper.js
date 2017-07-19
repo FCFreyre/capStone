@@ -28,12 +28,15 @@ class FlashCardFlipper extends React.Component {
       return(<div className="ui container header center">This is a loading screen</div>)
     }else {
       console.log(this.props.plays);
+
     return (
       <div>
         <h1>Flash Cards</h1>
-          <div>
+          <div className="ui card">
             <img src={this.props.plays[0].cover} alt="play-cover"/>
           </div>
+          <button>Flip</button>
+          <button>New Play</button>
       </div>
     );
   }
