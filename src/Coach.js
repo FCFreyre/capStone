@@ -24,7 +24,7 @@ class Coach extends React.Component {
 
         <div className="ui three item menu">
           <ActiveLink activeOnlyWhenExact to="/Coach" label="Home" />
-          <ActiveLink activeOnlyWhenExact to="/Coach/plays" label="Plays" />
+          <ActiveLink activeOnlyWhenExact to="/Coach/plays" label="Playbook" />
           <ActiveLink activeOnlyWhenExact to="/Coach/plays/new" label="Add New Play" />
         </div>
 

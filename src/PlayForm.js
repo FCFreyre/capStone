@@ -60,7 +60,7 @@ class PlayForm extends React.Component {
       {!!this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div>}
 
       <div className={classnames('field', { error: !!this.state.errors.title})}>
-        <h3 className="plays-list-label" htmlFor="title">Title</h3>
+        <h3 className="plays-list-label" htmlFor="title">Name of Play</h3>
         <input
           name="title"
           value={this.state.title}

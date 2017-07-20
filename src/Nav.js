@@ -19,8 +19,10 @@ class Nav extends React.Component {
       <div className="ui container nav">
         <div className="ui grid">
           <div className="computer tablet only row">
-            <div className="ui inverted fixed menu navbar page grid">
-              <img className="nav-logo" src="images/huddle_logo.jpg"/>
+            <div id="navbar" className="ui inverted fixed menu navbar page grid">
+              <a href="/">
+                <img className="nav-logo" src="images/huddle-transparent.png"/>
+              </a>
               <div className="right menu">
                 <a href="" className="active item">Sign In</a>
                 <a href="" className="active item">Contact</a>

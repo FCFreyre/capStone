@@ -18,11 +18,16 @@ h1{
 }
 
 .navbar {
-  color: black;
+  color: white;
+}
+
+.ui.inverted.menu {
+  color: white;
 }
 
 .nav-logo {
   height: 3em;
+  margin: .5em;
 }
 
 .logo {
@@ -59,4 +64,15 @@ label {
 button {
   align-self: center;
   margin: 1em;
+}
+
+.play-image {
+  padding:0;
+}
+
+@media only screen and (max-width: 1919px) and (min-width: 1200px){
+  .ui.page.grid {
+    padding-left:1em;
+    padding-right:1em;
+  }
 }
