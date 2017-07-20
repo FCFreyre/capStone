@@ -30,14 +30,14 @@ class FlashCardFlipper extends React.Component {
       console.log(this.props.plays);
 
     return (
-      <div>
-        <h1>Flash Cards</h1>
+      <div className="playbook">
+        <h1 className="plays-list-label">Flash Cards</h1>
           <div className="play-buttons">
-            <button>Flip</button>
-            <button>New Play</button>
+            <button className="fc-button">Flip Card</button>
+            <button className="fc-button">Next Play</button>
           </div>
           <div className="ui card play-image">
-            <img src={this.props.plays[0].cover} alt="play-cover"/>
+            <img className="fc-card" src={this.props.plays[0].cover} alt="play-cover"/>
           </div>
       </div>
     );

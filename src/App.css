@@ -49,6 +49,7 @@ label {
 .playbook {
   display: flex;
   flex-direction: column;
+  width:100%;
 }
 
 .landing-page {
@@ -85,8 +86,24 @@ button {
   margin: 1em;
 }
 
+.play-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
 .play-image {
   padding:0;
+  width:100%;
+}
+
+.fc-button {
+  color: black;
+  border: 1px solid white;
+}
+
+.fc-card {
+  width: 100%;
 }
 
 #player-prof {
