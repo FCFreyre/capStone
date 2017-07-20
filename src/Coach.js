@@ -15,14 +15,13 @@ class Coach extends React.Component {
 
   render() {
     return (
-      <div className="ui">
+      <div>
 
         <div className="ui card">
-          <h3>Welcome</h3>
           <h2>Coach123</h2>
         </div>
 
-        <div className="ui three item menu">
+        <div className="ui three item menu" id="coach-prof">
           <ActiveLink activeOnlyWhenExact to="/Coach" label="Home" />
           <ActiveLink activeOnlyWhenExact to="/Coach/plays" label="Playbook" />
           <ActiveLink activeOnlyWhenExact to="/Coach/plays/new" label="Add New Play" />
