@@ -30,35 +30,16 @@ class Nav extends React.Component {
             </div>
           </div>
           <div className="mobile only row">
-              <div className="ui fixed inverted navbar menu">
-                  <a href="" className="brand item">Project Name</a>
-                  <div className="right menu open">
-                      <a href="" className="menu item">
-                          <i className="content icon"></i>
-                      </a>
-                  </div>
+            <div className="ui fixed inverted navbar menu">
+              <a href="/">
+                <img className="nav-logo" src="images/huddle-transparent.png"/>
+              </a>
+              <div className="right menu open">
+                <a href="" className="menu item">
+                  <i className="content icon"></i>
+                </a>
               </div>
-              <div className="ui vertical navbar menu">
-                  <a href="" className="active item">Home</a>
-                  <a href="" className="item">About</a>
-                  <a href="" className="item">Contact</a>
-                  <div className="ui item">
-                      <div className="text">Dropdown</div>
-                      <div className="menu">
-                          <a className="item">Action</a>
-                          <a className="item">Another action</a>
-                          <a className="item">Something else here</a>
-                          <a className="ui aider"></a>
-                          <a className="item">Seperated link</a>
-                          <a className="item">One more seperated link</a>
-                        </div>
-                  </div>
-                  <div className="menu">
-                      <a href="" className="active item">Default</a>
-                      <a href="" className="item">Static top</a>
-                      <a href="" className="item">Fixed top</a>
-                  </div>
-              </div>
+            </div>
           </div>
         </div>
 
