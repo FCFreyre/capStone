@@ -15,10 +15,17 @@ body {
 .nav {
   height: 4em;
   margin-top: 0;
+  color: white;
 }
 
-.navbar {
-  color: white;
+#navbar {
+  background-color: white;
+}
+
+#my-link {
+  background-color: black;
+  border-bottom: white solid 1px;
+  border-top: white solid 1px;
 }
 
 .ui.inverted.menu {
@@ -66,7 +73,7 @@ h1.plays-list-label, .plays-list-label {
   width: auto;
 }
 .ui.card:first-child {
-  margin: 2em;
+  margin: .9em;
 }
 
 .ui.centered.card {
@@ -127,6 +134,14 @@ button {
 
 .header {
   height:auto;
+}
+
+.words {
+  height: 3em;
+}
+
+ui.cards>.card {
+  height: 30vh;
 }
 
 @media only screen and (max-width: 1919px) and (min-width: 1200px){

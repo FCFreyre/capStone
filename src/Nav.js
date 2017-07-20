@@ -24,8 +24,8 @@ class Nav extends React.Component {
                 <img className="nav-logo" src="images/huddle-transparent.png"/>
               </a>
               <div className="right menu">
-                <a href="" className="active item">Sign In</a>
-                <a href="" className="active item">Contact</a>
+                <a href="" className="active item" id="my-link">Sign In</a>
+                <a href="" className="active item" id="my-link">Contact</a>
               </div>
             </div>
           </div>

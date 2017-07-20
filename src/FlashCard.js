@@ -7,7 +7,7 @@ export default function FlashCard({ play }) {
       <div className="image">
         <img src={play.cover} alt="Play" />
       </div>
-      <div className="content">
+      <div className="content words">
         <div className="header">{play.title}</div>
       </div>
     </div>
