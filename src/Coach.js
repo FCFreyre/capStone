@@ -17,14 +17,16 @@ class Coach extends React.Component {
     return (
       <div>
 
-        <div className="ui card">
+        <div className="ui card" id="coach-username">
           <h2>Coach123</h2>
         </div>
 
-        <div className="ui three item menu" id="coach-prof">
-          <ActiveLink activeOnlyWhenExact to="/Coach" label="Home" />
+        <div className="ui five item menu" id="coach-prof">
           <ActiveLink activeOnlyWhenExact to="/Coach/plays" label="Playbook" />
           <ActiveLink activeOnlyWhenExact to="/Coach/plays/new" label="Add New Play" />
+          <ActiveLink activeOnlyWhenExact to="/" label="Roster" />
+          <ActiveLink activeOnlyWhenExact to="/" label="Schedule" />
+          <ActiveLink activeOnlyWhenExact to="/" label="Notes" />
         </div>
 
         <Route exact path="/plays" component={PlaysPage} />

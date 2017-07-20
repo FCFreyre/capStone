@@ -54,7 +54,7 @@ class PlayForm extends React.Component {
 
   render() {
     const form = (
-      <form className={classnames('ui', 'form', { loading: this.state.loading })} onSubmit={this.handleSubmit}>
+      <form className={classnames('ui', 'form', 'add-play-form', { loading: this.state.loading })} onSubmit={this.handleSubmit}>
       <h1>Play Editor</h1>
 
       {!!this.state.errors.global && <div className="ui negative message"><p>{this.state.errors.global}</p></div>}

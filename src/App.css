@@ -40,16 +40,16 @@ label {
   color: white;
 }
 
-.plays-list-label {
+h1.plays-list-label, .plays-list-label {
   color: white;
   align-self: center;
-  margin-bottom: 0;
+  margin: 1em;
 }
 
 .playbook {
   display: flex;
   flex-direction: column;
-  width:100%;
+  width:95%;
 }
 
 .landing-page {
@@ -71,6 +71,11 @@ label {
 
 .ui.centered.card {
   margin: 0;
+}
+
+#coach-username {
+  align-items: left;
+  width: 25em;
 }
 
 #sign-in{
@@ -114,6 +119,14 @@ button {
 #coach-prof {
   width: 100em;
   margin-bottom: auto;
+}
+
+.add-play-form{
+  width: 33em;
+}
+
+.header {
+  height:auto;
 }
 
 @media only screen and (max-width: 1919px) and (min-width: 1200px){

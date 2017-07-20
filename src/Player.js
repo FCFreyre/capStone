@@ -22,8 +22,7 @@ class Player extends React.Component {
           <h2>Player123</h2>
         </div>
 
-          <div className="ui three item menu" id="player-prof">
-            <ActiveLink activeOnlyWhenExact to="/Player" label="Home" />
+          <div className="ui two item menu" id="player-prof">
             <ActiveLink activeOnlyWhenExact to="/Player/plays" label="Playbook" />
             <ActiveLink activeOnlyWhenExact to="/Player/plays/FlashCardPage" label="Test your skills" />
           </div>

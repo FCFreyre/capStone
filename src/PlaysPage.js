@@ -21,7 +21,7 @@ class PlaysPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="ui container">
         <h1 className="plays-list-label">Playbook</h1>
 
         {!this.state.isLoading ? <PlaysList plays={this.props.plays} deletePlay={this.props.deletePlay} />: null}

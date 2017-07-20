@@ -35,7 +35,7 @@ class Nav extends React.Component {
                 <img className="nav-logo" src="images/huddle-transparent.png"/>
               </a>
               <div className="right menu open">
-                <a href="" className="menu item">
+                <a href="/" className="menu item">
                   <i className="content icon"></i>
                 </a>
               </div>
