@@ -42,6 +42,13 @@ label {
 
 .plays-list-label {
   color: white;
+  align-self: center;
+  margin-bottom: 0;
+}
+
+.playbook {
+  display: flex;
+  flex-direction: column;
 }
 
 .landing-page {
@@ -80,6 +87,11 @@ button {
 
 .play-image {
   padding:0;
+}
+
+#player-prof {
+  width: 26em;
+  margin-bottom: 2em;
 }
 
 @media only screen and (max-width: 1919px) and (min-width: 1200px){

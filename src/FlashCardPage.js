@@ -21,9 +21,9 @@ class FlashCardPage extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>List of Plays</h1>
-
+      <div className="playbook">
+        <h1 className="plays-list-label">Playbook</h1>
+        <br></br>
         {!this.state.isLoading ? <FlashCardList plays={this.props.plays} />: null}
       </div>
     );
