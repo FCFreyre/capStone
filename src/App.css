@@ -2,8 +2,8 @@ body {
   background-color: black;
 }
 
-h1{
-  color: white;
+.welcome-message {
+  margin-bottom: 0;
 }
 
 .ui.container {
@@ -26,13 +26,13 @@ h1{
 }
 
 .nav-logo {
-  height: 3em;
+  height: 3vh;
   margin: .5em;
 }
 
 .logo {
-  width: 120vh;
-  margin-top: 10vh;
+  width: 100vh;
+  margin: 5vh;
   align-self: center;
 }
 
@@ -59,6 +59,18 @@ label {
 }
 .ui.card:first-child {
   margin: 2em;
+}
+
+.ui.centered.card {
+  margin: 0;
+}
+
+#sign-in{
+  width: 40em;
+}
+
+.input {
+  border-bottom: solid 5px black;
 }
 
 button {
