@@ -30,7 +30,7 @@ class SignInPlayer extends React.Component {
           </div>
           <br></br>
           <div>
-            <h4>Password: <input class="input-underline" placeholder="Password"></input></h4>
+            <h4>Password: <input class="input-underline" type="password" placeholder="Password"></input></h4>
 
           </div>
 
