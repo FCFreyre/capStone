@@ -5,7 +5,8 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
-
+import Nav from './Nav';
+import Landing from './Landing';
 
 
 class App extends Component {
@@ -14,7 +15,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Redirect to='./Landing' />
+        <Nav />
+
+        <Route exact path="/" component={Landing} />
       </div>
 
     );

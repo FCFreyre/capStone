@@ -43,7 +43,6 @@ ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
       <div className="ui container">
-        <Nav />
         <Route path="/" component={App} />
         <Route path="/Landing" component={Landing} />
         <Route path="/Player" component={Player} />
