@@ -85,6 +85,6 @@ mongodb.MongoClient.connect(dbUrl, function(err, db) {
   })
 
 
-  app.listen(process.env.PORT || 8080, () => console.log('Server is running'));
+  app.listen(process.env.PORT || 8080, () => console.log('Server is running on 8080'));
 
 });
