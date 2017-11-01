@@ -1,3 +1,9 @@
+#appWrapper {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
 body {
   background-color: black;
 }
@@ -10,6 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width:auto;
 }
 
 .nav {
@@ -20,6 +27,11 @@ body {
 
 #navbar {
   background-color: white;
+  padding: 0;
+}
+
+#nav-wrapper{
+  width:100%;
 }
 
 #my-link {
@@ -61,7 +73,7 @@ h1.plays-list-label, .plays-list-label {
 
 .landing-page {
   display: flex;
-  flex-direction: column;
+  flex-direction: ;
   align-items: center;
 }
 
@@ -144,15 +156,19 @@ ui.cards>.card {
   height: 30vh;
 }
 
-@media only screen and (max-width: 1919px) and (min-width: 1200px){
-  .ui.page.grid {
-    padding-left:1em;
-    padding-right:1em;
+@media only screen and (max-width: 768px) {
+  body {
+    margin-left: -8vh;
   }
-}
 
-@media only screen and (max-width: 500px) {
   .logo {
-    width: 60vh;
+    width: 45vh;
+    align-self: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #sign-in {
+    width: 50vh;
   }
 }

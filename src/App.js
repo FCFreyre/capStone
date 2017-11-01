@@ -14,7 +14,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div id="appWrapper">
         <Nav />
 
         <Route exact path="/" component={Landing} />
