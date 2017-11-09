@@ -1,7 +1,7 @@
-import express from 'express';
-import mongodb from 'mongodb';
-import cors from 'cors';
-import bodyParser from 'body-parser';
+var express = require('express');
+var mongodb = require('mongodb');
+var cors = require('cors');
+var bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.json())
