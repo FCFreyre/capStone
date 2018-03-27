@@ -5,6 +5,8 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "firebase-tools": "^3.13.1",
+    "g": "^2.0.1",
+    "npm": "^5.8.0",
     "prop-types": "^15.6.0",
     "react": "15.6.1",
     "react-dom": "15.6.1",
