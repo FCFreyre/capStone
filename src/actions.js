@@ -3,7 +3,7 @@ export const ADD_PLAY = 'ADD_PLAY';
 export const PLAY_FETCHED = 'PLAY_FETCHED';
 export const PLAY_UPDATED = 'PLAY_UPDATED';
 export const PLAY_DELETED = 'PLAY_DELETED';
-const API_BASE_URL = /localhost/.test(window.location.href) ? 'http://localhost:8080' : 'https://bref-mandarine-14323.herokuapp.com/'
+const API_BASE_URL = /localhost/.test(window.location.href) ? 'http://localhost:8080' : 'https://bref-mandarine-14323.herokuapp.com'
 
 function handleResponse(response) {
   if (response.ok) {
