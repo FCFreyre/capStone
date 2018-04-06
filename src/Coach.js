@@ -6,8 +6,9 @@ import {
 import PlaysPage from './PlaysPage';
 
 const ActiveLink = ({ label, to, activeOnlyWhenExact }) => (
-  <Route path={to} exact={activeOnlyWhenExact} children={({ match }) => (
-    <Link className={match ? 'active item' : 'item'} to={to}>{label}</Link>
+  <Route path={to} exact={activeOnlyWhenExact} children={
+    ({ match }) => (
+      <Link className={match ? 'active item' : 'item'} to={to}>{label}</Link>
   )} />
 )
 

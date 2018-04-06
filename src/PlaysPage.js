@@ -10,7 +10,6 @@ class PlaysPage extends React.Component {
   }
 
    async componentWillMount() {
-    //  this.setState({isLoading: true})
      await this.props.fetchPlays()
      this.setState({isLoading: false})
      true
